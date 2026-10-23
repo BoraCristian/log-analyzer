@@ -10,7 +10,7 @@ import re
 from collections import defaultdict
 from dataclasses import dataclass
 from datetime import datetime, timedelta
-from typing import Callable, Iterable
+from collections.abc import Callable, Iterable
 from urllib.parse import unquote_plus
 
 from .models import Event, Finding, Severity

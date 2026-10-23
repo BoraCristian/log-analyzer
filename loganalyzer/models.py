@@ -16,14 +16,14 @@ class Severity(IntEnum):
     CRITICAL = 4
 
     @classmethod
-    def parse(cls, value: str) -> "Severity":
+    def parse(cls, value: str) -> Severity:
         try:
             return cls[value.strip().upper()]
         except KeyError:
             choices = ", ".join(s.name.lower() for s in cls)
             raise ValueError(f"unknown severity {value!r} (choose from {choices})") from None
 
-    def bump(self) -> "Severity":
+    def bump(self) -> Severity:
         return Severity(min(self + 1, Severity.CRITICAL))
 
 

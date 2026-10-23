@@ -17,6 +17,8 @@ It's pure Python with **no dependencies** (3.10+). It outputs a coloured termina
  ...
 ```
 
+![HTML report generated from the sample logs](docs/screenshot-report.jpg)
+
 See [`docs/example-report.html`](docs/example-report.html) (download and open it) and [`docs/example-report.json`](docs/example-report.json) for full output on the sample logs.
 
 ## Quick start
