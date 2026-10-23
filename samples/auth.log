@@ -1,0 +1,180 @@
+Oct 21 00:00:00 web01 CRON[42905]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 00:15:00 web01 CRON[8296]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 00:30:00 web01 CRON[2639]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 00:45:00 web01 CRON[49598]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 01:00:00 web01 CRON[19024]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 01:15:00 web01 CRON[17049]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 01:30:00 web01 CRON[15628]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 01:36:05 web01 sshd[48966]: Invalid user test from 198.51.100.23 port 32806
+Oct 21 01:36:05 web01 sshd[32849]: Connection closed by invalid user test 198.51.100.23 port 32806 [preauth]
+Oct 21 01:45:00 web01 CRON[10144]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 02:00:00 web01 CRON[49265]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 02:15:00 web01 CRON[7717]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 02:30:00 web01 CRON[45348]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 02:45:00 web01 CRON[49540]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 03:00:00 web01 CRON[59469]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 03:12:04 web01 sshd[46099]: Failed password for root from 203.0.113.45 port 50971 ssh2
+Oct 21 03:12:16 web01 sshd[45866]: Failed password for root from 203.0.113.45 port 37196 ssh2
+Oct 21 03:12:25 web01 sshd[51352]: Failed password for root from 203.0.113.45 port 57618 ssh2
+Oct 21 03:12:29 web01 sshd[54857]: Failed password for root from 203.0.113.45 port 37505 ssh2
+Oct 21 03:12:33 web01 sshd[21673]: Failed password for root from 203.0.113.45 port 56379 ssh2
+Oct 21 03:12:43 web01 sshd[5337]: Failed password for root from 203.0.113.45 port 38773 ssh2
+Oct 21 03:12:50 web01 sshd[62794]: Failed password for root from 203.0.113.45 port 59921 ssh2
+Oct 21 03:13:03 web01 sshd[48049]: Failed password for root from 203.0.113.45 port 58716 ssh2
+Oct 21 03:13:12 web01 sshd[43954]: Failed password for root from 203.0.113.45 port 36967 ssh2
+Oct 21 03:13:23 web01 sshd[58978]: Failed password for root from 203.0.113.45 port 42964 ssh2
+Oct 21 03:13:37 web01 sshd[10363]: Failed password for root from 203.0.113.45 port 45035 ssh2
+Oct 21 03:13:45 web01 sshd[17162]: Failed password for root from 203.0.113.45 port 34575 ssh2
+Oct 21 03:14:00 web01 sshd[36322]: Failed password for root from 203.0.113.45 port 48394 ssh2
+Oct 21 03:14:08 web01 sshd[39311]: Failed password for root from 203.0.113.45 port 54478 ssh2
+Oct 21 03:14:18 web01 sshd[39242]: Failed password for root from 203.0.113.45 port 59419 ssh2
+Oct 21 03:14:28 web01 sshd[15373]: Failed password for root from 203.0.113.45 port 41861 ssh2
+Oct 21 03:14:34 web01 sshd[33343]: Failed password for root from 203.0.113.45 port 46696 ssh2
+Oct 21 03:14:39 web01 sshd[4087]: Failed password for root from 203.0.113.45 port 54765 ssh2
+Oct 21 03:14:44 web01 sshd[42120]: Failed password for admin from 203.0.113.45 port 35008 ssh2
+Oct 21 03:14:50 web01 sshd[45596]: Failed password for admin from 203.0.113.45 port 55954 ssh2
+Oct 21 03:15:00 web01 CRON[36741]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 03:15:00 web01 sshd[5163]: Failed password for admin from 203.0.113.45 port 49543 ssh2
+Oct 21 03:15:10 web01 sshd[40052]: Failed password for admin from 203.0.113.45 port 42504 ssh2
+Oct 21 03:15:21 web01 sshd[17476]: Failed password for admin from 203.0.113.45 port 47338 ssh2
+Oct 21 03:15:33 web01 sshd[62763]: Failed password for admin from 203.0.113.45 port 58206 ssh2
+Oct 21 03:15:37 web01 sshd[48233]: Failed password for admin from 203.0.113.45 port 52291 ssh2
+Oct 21 03:15:42 web01 sshd[58985]: Failed password for admin from 203.0.113.45 port 52338 ssh2
+Oct 21 03:15:54 web01 sshd[18486]: Failed password for admin from 203.0.113.45 port 54604 ssh2
+Oct 21 03:16:08 web01 sshd[8310]: Failed password for admin from 203.0.113.45 port 41146 ssh2
+Oct 21 03:16:16 web01 sshd[11365]: Failed password for admin from 203.0.113.45 port 44246 ssh2
+Oct 21 03:16:27 web01 sshd[63509]: Failed password for admin from 203.0.113.45 port 30106 ssh2
+Oct 21 03:16:42 web01 sshd[48164]: Failed password for admin from 203.0.113.45 port 58699 ssh2
+Oct 21 03:16:50 web01 sshd[50935]: Failed password for admin from 203.0.113.45 port 46403 ssh2
+Oct 21 03:16:56 web01 sshd[60809]: Invalid user ubuntu from 203.0.113.45 port 46635
+Oct 21 03:16:56 web01 sshd[7973]: Failed password for invalid user ubuntu from 203.0.113.45 port 46635 ssh2
+Oct 21 03:17:10 web01 sshd[56159]: Invalid user ubuntu from 203.0.113.45 port 39779
+Oct 21 03:17:10 web01 sshd[42874]: Failed password for invalid user ubuntu from 203.0.113.45 port 39779 ssh2
+Oct 21 03:17:22 web01 sshd[14035]: Invalid user ubuntu from 203.0.113.45 port 49954
+Oct 21 03:17:22 web01 sshd[11016]: Failed password for invalid user ubuntu from 203.0.113.45 port 49954 ssh2
+Oct 21 03:17:31 web01 sshd[11587]: Invalid user ubuntu from 203.0.113.45 port 54985
+Oct 21 03:17:31 web01 sshd[36348]: Failed password for invalid user ubuntu from 203.0.113.45 port 54985 ssh2
+Oct 21 03:17:43 web01 sshd[40252]: Invalid user ubuntu from 203.0.113.45 port 30018
+Oct 21 03:17:43 web01 sshd[22243]: Failed password for invalid user ubuntu from 203.0.113.45 port 30018 ssh2
+Oct 21 03:17:54 web01 sshd[8331]: Invalid user ubuntu from 203.0.113.45 port 30638
+Oct 21 03:17:54 web01 sshd[61889]: Failed password for invalid user ubuntu from 203.0.113.45 port 30638 ssh2
+Oct 21 03:18:03 web01 sshd[55504]: message repeated 3 times: [ Failed password for admin from 203.0.113.45 port 58793 ssh2]
+Oct 21 03:18:43 web01 sshd[16692]: Accepted password for admin from 203.0.113.45 port 50076 ssh2
+Oct 21 03:18:43 web01 sshd[4796]: pam_unix(sshd:session): session opened for user admin(uid=1000) by (uid=0)
+Oct 21 03:20:43 web01 sudo:   admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/bin/bash
+Oct 21 03:21:43 web01 sudo:   admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/usr/bin/crontab -l
+Oct 21 03:30:00 web01 CRON[6697]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 03:45:00 web01 CRON[39698]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 03:52:04 web01 sshd[35911]: Invalid user oracle from 198.51.100.23 port 54923
+Oct 21 03:52:04 web01 sshd[51189]: Connection closed by invalid user oracle 198.51.100.23 port 54923 [preauth]
+Oct 21 04:00:00 web01 CRON[28651]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 04:15:00 web01 CRON[3082]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 04:30:00 web01 CRON[2952]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 04:45:00 web01 CRON[7140]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 05:00:00 web01 CRON[15328]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 05:08:08 web01 sshd[32148]: Invalid user postgres from 198.51.100.23 port 51618
+Oct 21 05:08:08 web01 sshd[63052]: Connection closed by invalid user postgres 198.51.100.23 port 51618 [preauth]
+Oct 21 05:15:00 web01 CRON[16247]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 05:30:00 web01 CRON[34118]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 05:45:00 web01 CRON[40453]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 06:00:00 web01 CRON[2739]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 06:15:00 web01 CRON[37781]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 06:30:00 web01 CRON[14031]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 06:45:00 web01 CRON[47925]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 07:00:00 web01 CRON[43590]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 07:15:00 web01 CRON[46962]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 07:30:00 web01 CRON[36713]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 07:35:10 web01 sshd[35581]: Invalid user git from 198.51.100.23 port 38685
+Oct 21 07:35:10 web01 sshd[58175]: Connection closed by invalid user git 198.51.100.23 port 38685 [preauth]
+Oct 21 07:45:00 web01 CRON[28493]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 08:00:00 web01 CRON[15446]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 08:15:00 web01 CRON[30439]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 08:30:00 web01 CRON[39618]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 08:45:00 web01 CRON[19231]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 09:00:00 web01 CRON[54046]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 09:02:11 web01 sshd[11659]: Accepted publickey for alice from 10.0.0.12 port 51954 ssh2
+Oct 21 09:02:11 web01 sshd[25260]: pam_unix(sshd:session): session opened for user alice(uid=1000) by (uid=0)
+Oct 21 09:04:30 web01 sudo:   alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/apt update
+Oct 21 09:06:02 web01 sudo:   alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/apt upgrade -y
+Oct 21 09:15:00 web01 CRON[57970]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 09:30:00 web01 CRON[1425]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 09:38:27 web01 sshd[61877]: Invalid user ftpuser from 198.51.100.23 port 36940
+Oct 21 09:38:27 web01 sshd[36343]: Connection closed by invalid user ftpuser 198.51.100.23 port 36940 [preauth]
+Oct 21 09:45:00 web01 CRON[50729]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 10:00:00 web01 CRON[53810]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 10:15:00 web01 CRON[11463]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 10:15:40 web01 sshd[18496]: Accepted password for bob from 10.0.0.15 port 61960 ssh2
+Oct 21 10:15:40 web01 sshd[46994]: pam_unix(sshd:session): session opened for user bob(uid=1000) by (uid=0)
+Oct 21 10:20:05 web01 sudo:   bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/systemctl restart nginx
+Oct 21 10:30:00 web01 CRON[46753]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 10:45:00 web01 CRON[28696]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 11:00:00 web01 CRON[23298]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 11:15:00 web01 CRON[19210]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 11:30:00 web01 CRON[11189]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 11:45:00 web01 CRON[15110]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 11:48:46 web01 sshd[14182]: Invalid user deploy from 198.51.100.23 port 52605
+Oct 21 11:48:46 web01 sshd[47723]: Connection closed by invalid user deploy 198.51.100.23 port 52605 [preauth]
+Oct 21 12:00:00 web01 CRON[63731]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 12:15:00 web01 CRON[51036]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 12:30:00 web01 CRON[23059]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 12:45:00 web01 CRON[7698]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 13:00:00 web01 CRON[7078]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 13:15:00 web01 CRON[25898]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 13:19:25 web01 sshd[43590]: Invalid user jenkins from 198.51.100.23 port 52009
+Oct 21 13:19:25 web01 sshd[25472]: Connection closed by invalid user jenkins 198.51.100.23 port 52009 [preauth]
+Oct 21 13:30:00 web01 CRON[7338]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 13:31:09 web01 sshd[43469]: Accepted publickey for alice from 10.0.0.12 port 62398 ssh2
+Oct 21 13:31:09 web01 sshd[5679]: pam_unix(sshd:session): session opened for user alice(uid=1000) by (uid=0)
+Oct 21 13:35:44 web01 sudo:   alice : TTY=pts/0 ; PWD=/home/alice ; USER=root ; COMMAND=/usr/bin/tail -n 200 /var/log/nginx/error.log
+Oct 21 13:45:00 web01 CRON[24526]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 14:00:00 web01 CRON[56541]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 14:02:05 web01 sudo: pam_unix(sudo:auth): authentication failure; logname=bob uid=1001 euid=0 tty=/dev/pts/1 ruser=bob rhost=  user=bob
+Oct 21 14:02:19 web01 sudo: pam_unix(sudo:auth): authentication failure; logname=bob uid=1001 euid=0 tty=/dev/pts/1 ruser=bob rhost=  user=bob
+Oct 21 14:02:31 web01 sudo: pam_unix(sudo:auth): authentication failure; logname=bob uid=1001 euid=0 tty=/dev/pts/1 ruser=bob rhost=  user=bob
+Oct 21 14:02:31 web01 sudo:   bob : 3 incorrect password attempts ; TTY=pts/1 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/vim /etc/hosts
+Oct 21 14:03:40 web01 sudo:   bob : 1 incorrect password attempt ; TTY=pts/1 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/vim /etc/hosts
+Oct 21 14:03:52 web01 sudo:   bob : 1 incorrect password attempt ; TTY=pts/1 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/vim /etc/hosts
+Oct 21 14:04:20 web01 sudo:   bob : TTY=pts/0 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/vim /etc/hosts
+Oct 21 14:15:00 web01 CRON[23541]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 14:30:00 web01 CRON[40565]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 14:45:00 web01 CRON[18335]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 15:00:00 web01 CRON[53895]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 15:15:00 web01 CRON[3847]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 15:28:57 web01 sshd[30588]: Invalid user minecraft from 198.51.100.23 port 46959
+Oct 21 15:28:57 web01 sshd[8930]: Connection closed by invalid user minecraft 198.51.100.23 port 46959 [preauth]
+Oct 21 15:30:00 web01 CRON[48823]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 15:45:00 web01 CRON[31108]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 16:00:00 web01 CRON[36142]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 16:15:00 web01 CRON[9180]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 16:30:00 web01 CRON[64774]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 16:45:00 web01 CRON[61443]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 17:00:00 web01 CRON[25807]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 17:15:00 web01 CRON[6164]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 17:30:00 web01 CRON[37178]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 17:45:00 web01 CRON[20213]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 18:00:00 web01 CRON[55355]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 18:15:00 web01 CRON[42198]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 18:30:00 web01 CRON[41535]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 18:45:00 web01 CRON[59028]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 19:00:00 web01 CRON[57472]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 19:15:00 web01 CRON[24700]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 19:30:00 web01 CRON[38837]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 19:45:00 web01 CRON[13601]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 20:00:00 web01 CRON[47174]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 20:15:00 web01 CRON[5558]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 20:30:00 web01 CRON[4003]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 20:45:00 web01 CRON[44336]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 21:00:00 web01 CRON[15935]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 21:15:00 web01 CRON[51663]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 21:30:00 web01 CRON[19965]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 21:45:00 web01 CRON[6229]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 22:00:00 web01 CRON[57054]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 22:15:00 web01 CRON[16256]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 22:30:00 web01 CRON[57785]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 22:45:00 web01 CRON[7619]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 23:00:00 web01 CRON[25911]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 23:15:00 web01 CRON[19217]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 23:30:00 web01 CRON[30714]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)
+Oct 21 23:41:03 web01 sshd[18691]: Accepted publickey for alice from 10.0.0.12 port 52433 ssh2
+Oct 21 23:41:03 web01 sshd[61646]: pam_unix(sshd:session): session opened for user alice(uid=1000) by (uid=0)
+Oct 21 23:45:00 web01 CRON[42660]: pam_unix(cron:session): session opened for user root(uid=0) by (uid=0)

