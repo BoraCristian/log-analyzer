@@ -186,7 +186,7 @@ def render_html(summary: Summary) -> str:
     )
     if summary.findings:
         items = []
-        for i, f in enumerate(summary.findings):
+        for f in summary.findings:
             sev = f.severity.name.lower()
             span = f.first_seen.strftime("%Y-%m-%d %H:%M:%S")
             if f.last_seen != f.first_seen:
