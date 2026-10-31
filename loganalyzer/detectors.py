@@ -245,10 +245,18 @@ def sudo_failures(events: list[Event], config: Config) -> list[Finding]:
 # web access log rules
 # ---------------------------------------------------------------------------
 
-# (severity, description, pattern) - matched against the URL-decoded, lower-cased request path
+# an SQL /* comment */ written so that every input can be matched in only one way
+SQL_COMMENT = r"/\*[^*]*\*+(?:[^/*][^*]*\*+)*/"
+
+# (severity, description, pattern) - matched against the URL-decoded, lower-cased request path.
+# The input is attacker-controlled, so no pattern may contain ambiguous repetition such as (a|a.*)+
+# or two \s* that can share the same whitespace: those backtrack exponentially (ReDoS) on crafted
+# input and would let one request freeze the analyzer. test_detectors checks this.
 ATTACK_PATTERNS: dict[str, tuple[Severity, str, re.Pattern]] = {
     "sql_injection": (Severity.HIGH, "SQL injection", re.compile(
-        r"union(\s|/\*.*?\*/)+(all\s+)?select|'\s*(or|and)\s*'?\d*'?\s*=|\bor\s+\d+\s*=\s*\d+"
+        rf"union(?:\s|{SQL_COMMENT})+(?:all\s+)?select"
+        r"|'\s*(?:or|and)\s*(?:'\d*'?\s*|\d+'?\s*)?="
+        r"|\bor\s+\d+\s*=\s*\d+"
         r"|sleep\(\s*\d+\s*\)|benchmark\(|information_schema|waitfor\s+delay|;\s*drop\s+table|'\s*--")),
     "xss": (Severity.MEDIUM, "Cross-site scripting (XSS)", re.compile(
         r"<\s*script|javascript:|on(error|load|mouseover|focus)\s*=|<\s*svg|<\s*iframe|alert\s*\(|document\.cookie")),

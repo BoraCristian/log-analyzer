@@ -1,3 +1,4 @@
+import time
 import unittest
 from datetime import datetime, timedelta
 
@@ -111,6 +112,21 @@ class WebRuleTests(unittest.TestCase):
         for path in ["/", "/blog/union-station-selection", "/search?q=rock+and+roll", "/products.php?id=3",
                      "/static/app.js", "/api/items?order=asc&limit=10", "/docs/select-a-plan"]:
             self.assertEqual(self.categories(path), set(), path)
+
+    def test_sql_comments_used_as_spaces(self):
+        for path in ["/p?id=1%20union/**/select%20null", "/p?id=1%20union%20/*x*/%20/*y*/%20all%20select",
+                     "/p?id=1%20union/*a*b*/select"]:
+            self.assertIn("SQL injection", self.categories(path), path)
+
+    def test_patterns_resist_redos(self):
+        # Request paths are attacker-controlled. These inputs made the old SQL injection pattern
+        # backtrack exponentially (about 2 s at 100 characters, hours at 150).
+        crafted = ["/?id=union" + "/**/" * 5000 + "x", "/?id=union/*" + "*" * 20000,
+                   "/?id='%20or" + "%20" * 20000 + "x", "/?id=" + "'%20or%20" * 5000]
+        for path in crafted:
+            start = time.perf_counter()
+            self.categories(path)
+            self.assertLess(time.perf_counter() - start, 1.0, f"slow on {len(path)}-char input")
 
     def test_exposed_sensitive_file_is_high(self):
         findings = run_rules([web("1.1.1.1", "/.git/config", 404), web("1.1.1.1", "/.env", 200)], only={"web_attack"})

@@ -77,7 +77,7 @@ loganalyzer access.log --rules web_attack,web_scan --scan-threshold 10 -v
 | `off_hours_login` | Low | successful logins outside working hours (supports overnight ranges like `22-06`) |
 | `sudo_root_shell` | Medium | `sudo` used to open an interactive root shell (`bash`, `sh`, `su`...), whose commands sudo can't log |
 | `sudo_failures` | Medium | repeated wrong sudo passwords or users not in sudoers |
-| `web_attack` | Low-Critical | SQLi, XSS, path traversal/LFI, command injection, Log4Shell (in URL *or* User-Agent), sensitive-file probes (`/.env`, `/.git/`, backups...). URLs are decoded twice to catch double-encoding. Severity goes up when a sensitive file was actually served (2xx). |
+| `web_attack` | Low-Critical | SQLi, XSS, path traversal/LFI, command injection, Log4Shell (in URL *or* User-Agent), sensitive-file probes (`/.env`, `/.git/`, backups...). URLs are decoded twice to catch double-encoding. Severity goes up when a sensitive file was actually served (2xx). Patterns are written to avoid catastrophic backtracking (ReDoS), so a crafted request can't freeze the analyzer, and a regression test enforces it. |
 | `web_scan` | Medium | many **distinct** 404 paths from one IP in a short window (a user refreshing one broken link doesn't count) |
 | `suspicious_user_agent` | Medium / Info | known tools (sqlmap, Nikto, Nmap, Gobuster, ffuf, WPScan, Nuclei, Hydra...) and scripted clients/empty UAs |
 | `http_bruteforce` | High / **Critical** | bursts of POSTs to login endpoints; Critical if the burst ends in a redirect (typical of a successful login) |
@@ -111,7 +111,7 @@ log files ──> parsers.py ──> Event objects ──> detectors.py (rules) 
 python -m unittest discover -s tests -t .     # or: pytest
 ```
 
-The 45 tests cover the parsers (edge cases like year rollover, IPv6, gzip), every rule (including benign URLs that must *not* trigger), and end-to-end CLI runs checking that every planted attack is found and nothing in the normal traffic is flagged.
+The 47 tests cover the parsers (edge cases like year rollover, IPv6, gzip), every rule (including benign URLs that must *not* trigger), and end-to-end CLI runs checking that every planted attack is found and nothing in the normal traffic is flagged.
 
 ## Limitations / ideas
 
