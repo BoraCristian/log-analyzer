@@ -1,5 +1,7 @@
 # Log Analyzer
 
+[![CI](https://github.com/BoraCristian/log-analyzer/actions/workflows/ci.yml/badge.svg)](https://github.com/BoraCristian/log-analyzer/actions/workflows/ci.yml)
+
 A command-line tool that reads **Linux auth logs** and **Apache/nginx access logs** and reports suspicious activity: SSH brute force (and the successful login that follows it), username enumeration, root shells via sudo, web vulnerability scans, SQL injection / XSS / path traversal / command injection payloads, Log4Shell probes, login brute force against web apps, and known attack tools.
 
 It's pure Python with **no dependencies** (3.10+). It outputs a coloured terminal report, JSON for pipelines, or a self-contained HTML report.
@@ -24,7 +26,8 @@ See [`docs/example-report.html`](docs/example-report.html) (download and open it
 ## Quick start
 
 ```bash
-cd projects/log-analyzer
+git clone https://github.com/BoraCristian/log-analyzer.git
+cd log-analyzer
 python -m loganalyzer samples/auth.log samples/access.log
 ```
 
@@ -118,3 +121,9 @@ The 47 tests cover the parsers (edge cases like year rollover, IPv6, gzip), ever
 - Signature-based web detection catches common payloads, not every obfuscation. It's a triage tool, not a WAF.
 - No GeoIP or threat-intel lookups (kept dependency-free). Those could be added as an optional enrichment step.
 - Next ideas: Windows Security event logs (4625/4624), `journalctl -o json` input, and a `--follow` mode for live tailing.
+
+## More security projects
+
+- [Ovidius NIDS](https://github.com/BoraCristian/ovidius-nids), my bachelor's thesis: hybrid signature + machine-learning network intrusion detection
+- [OSINT Dashboard](https://github.com/BoraCristian/osint-dashboard): passive reconnaissance with an SSRF guard
+- [SafeNotes](https://github.com/BoraCristian/safenotes): a web app that defends against the OWASP Top 10

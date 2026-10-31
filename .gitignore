@@ -4,3 +4,7 @@ build/
 dist/
 .venv/
 /report.*
+.env
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
